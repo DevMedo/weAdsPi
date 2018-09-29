@@ -40,9 +40,12 @@ public class MainActivity extends Activity {
     WebView webView;
     int count;
     String uidValue;
+    String inte;
 
     VideoView videoView;
     WebView mWebView;
+
+    //YouTubePlayerView pw;
 
     private final String YOUTUBE_PREFIX = "https://www.youtube.com/embed/";
     private void setupWebView(){
@@ -50,6 +53,8 @@ public class MainActivity extends Activity {
         String code = "A0K5KFKKhYY";
         webView.loadUrl(YOUTUBE_PREFIX+code);
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,9 +101,11 @@ public class MainActivity extends Activity {
 
                 for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
                     User user = userSnapshot.getValue(User.class);
-                    // if(user.getId().equals(uidValue)){
+                     if(user.getId().equals(uidValue)){
+                         // Just for testing
                     textView.setText("ID : "+user.getId()+" NAME : "+user.getName()+" INT :"+user.getIntreset());
-                    // }
+                    inte=user.getIntreset();
+                     }
                 }
 
                // videoView.setVideoPath();

@@ -36,5 +36,4 @@
         tools:layout_editor_absoluteY="123dp"
         android:id="@+id/webview"/>
 
-
 </RelativeLayout>
