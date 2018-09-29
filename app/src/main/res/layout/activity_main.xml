@@ -34,6 +34,8 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="123dp"
-        android:id="@+id/webview"/>
+        android:id="@+id/webview">
+
+    </WebView>
 
 </RelativeLayout>

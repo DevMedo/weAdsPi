@@ -48,9 +48,21 @@ public class MainActivity extends Activity {
     //YouTubePlayerView pw;
 
     private final String YOUTUBE_PREFIX = "https://www.youtube.com/embed/";
-    private void setupWebView(){
+    private void hackathon(){
         webView.getSettings().setJavaScriptEnabled(true);
         String code = "A0K5KFKKhYY";
+        webView.loadUrl(YOUTUBE_PREFIX+code);
+    }
+
+    private void cars(){
+        webView.getSettings().setJavaScriptEnabled(true);
+        String code = "DQG_QMpHJd4";
+        webView.loadUrl(YOUTUBE_PREFIX+code);
+    }
+
+    private void sports(){
+        webView.getSettings().setJavaScriptEnabled(true);
+        String code = "MEoDYm0v4j0";
         webView.loadUrl(YOUTUBE_PREFIX+code);
     }
 
@@ -71,7 +83,7 @@ public class MainActivity extends Activity {
         final DatabaseReference myRef1 = database.getReference("Screens/Screen1/UID");
         final DatabaseReference myRef2 = database.getReference("users");
 
-        setupWebView();
+        //setupWebView();
 
         myRef1.addValueEventListener(new ValueEventListener(){
 
@@ -105,8 +117,32 @@ public class MainActivity extends Activity {
                          // Just for testing
                     textView.setText("ID : "+user.getId()+" NAME : "+user.getName()+" INT :"+user.getIntreset());
                     inte=user.getIntreset();
+                         Log.d("HERE IT IS",inte+" $ "+user.getIntreset());
                      }
                 }
+
+
+                String Hackthon="hackathon";
+                String carString="cars";
+                String sports="sports";
+
+                    //hackathon();
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                    User user = userSnapshot.getValue(User.class);
+                    //System.out.println(" inte "+inte);
+                    System.out.println(Hackthon+" # "+inte);
+                    if(Hackthon.equals(inte)){
+                        // Just for testing
+                        hackathon();
+                    }else if(carString.equals(inte)){
+                        cars();
+
+                    }
+                }
+
+
+
+
 
                // videoView.setVideoPath();
 
